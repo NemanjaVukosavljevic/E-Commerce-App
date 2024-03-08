@@ -1,8 +1,6 @@
-// components/Cart.js
 import React from 'react';
 
 const Cart = ({ cartItems, removeFromCart }) => {
-  // Function to calculate total price
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
   };

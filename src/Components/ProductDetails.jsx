@@ -1,4 +1,3 @@
-// components/ProductDetails.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -21,7 +20,6 @@ const ProductDetails = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    // Implement add to cart functionality
     console.log('Product added to cart:', product);
   };
 
