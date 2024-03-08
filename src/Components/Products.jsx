@@ -66,14 +66,24 @@ const Products = ({ addToCart }) => {
   return (
     <div className="container mx-auto py-8">
       <h2 className="text-2xl font-bold mb-4">{selectedCategory ? `${selectedCategory.charAt(0).toUpperCase()}${selectedCategory.slice(1)} Products` : 'All Products'}</h2>
-      <div className="mb-4">
-        <label htmlFor="category" className="block mb-1">Filter by Category:</label>
-        <select id="category" value={selectedCategory} onChange={handleCategoryChange} className="border border-gray-300 rounded-md px-4 py-2">
-          <option value="">All</option>
-          {categories.map(category => (
-            <option key={category} value={category}>{category}</option>
-          ))}
-        </select>
+      <div className="flex justify-between mb-4">
+        <div>
+          <label htmlFor="category" className="block mb-1">Filter by Category:</label>
+          <select id="category" value={selectedCategory} onChange={handleCategoryChange} className="border border-gray-300 rounded-md px-4 py-2">
+            <option value="">All</option>
+            {categories.map(category => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="sortByPrice" className="block mb-1">Sort by Price:</label>
+          <select id="sortByPrice" value={sortByPrice} onChange={handleSortByPriceChange} className="border border-gray-300 rounded-md px-4 py-2">
+            <option value="">Default</option>
+            <option value="asc">Lowest to Highest</option>
+            <option value="desc">Highest to Lowest</option>
+          </select>
+        </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredProducts.map(product => (

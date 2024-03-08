@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ProductDetails = () => {
+const ProductDetails = ({ addToCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -20,13 +20,13 @@ const ProductDetails = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    console.log('Product added to cart:', product);
+    addToCart(product);
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container min-h-[80vh] flex justify-center items-center mx-auto py-8">
       {product ? (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="bg-white lg:w-[40%] rounded-lg shadow-md overflow-hidden">
           <div className="text-center">
             <img src={product.image} alt={product.title} className="mx-auto mt-4 mb-8 max-w-full h-auto" style={{ maxWidth: '300px' }} />
           </div>
